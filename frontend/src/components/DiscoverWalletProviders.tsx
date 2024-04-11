@@ -24,43 +24,36 @@ export const DiscoverWalletProviders = () => {
     // Display detected providers as connect buttons.
     return (
         <>
-            {userAccount ?
-                <div>
-                    {userAccount &&
+            <h2>Wallets Detected:</h2>
+            <div>
+                {
+                    providers.length > 0 ? providers?.map((provider: EIP6963ProviderDetail) => (
+                        <button key={provider.info.uuid} onClick={() => handleConnect(provider)} >
+                        <img src={provider.info.icon} alt={provider.info.name} />
+                        <div>{provider.info.name}</div>
+                        </button>
+                    )) :
                         <div>
-                            <div className="flex flex-col">
-                                <div className="flex flex-row gap-2 justify-center font-extrabold">
-                                    <img src={selectedWallet.info.icon} alt={selectedWallet.info.name} />
-                                    <div className="flex items-center ">{selectedWallet.info.name}</div>
-                                </div>
-                                <div><span className="font-bold mr-2">Address:</span>({formatAddress(userAccount)})</div>
-                                <div><span className="font-bold mr-2">Chain ID:</span>{selectedWallet.provider.chainId}</div>
-                            </div>
+                            No Wallet Detected. Please download MetaMask at:
+                            <br/>
+                            <a href="https://www.metamask.io" target="_blank" rel="noopener noreferrer">
+                                www.metamask.io
+                            </a>
                         </div>
-                    }
-                </div>
-            :
+                }
+            </div>
+            <hr />
+            <h2>{userAccount ? "" : "No "}Wallet Selected:</h2>
+            {userAccount &&
                 <div>
-                    <h2>Wallets Detected:</h2>
-                    <div>
-                        {
-                            providers.length > 0 ? providers?.map((provider: EIP6963ProviderDetail) => (
-                                <button key={provider.info.uuid} onClick={() => handleConnect(provider)} >
-                                <img src={provider.info.icon} alt={provider.info.name} />
-                                <div>{provider.info.name}</div>
-                                </button>
-                            )) :
-                                <div>
-                                    No Wallet Detected. Please download MetaMask at:
-                                    <br/>
-                                    <a href="https://www.metamask.io" target="_blank" rel="noopener noreferrer">
-                                        www.metamask.io
-                                    </a>
-                                </div>
-                        }
+                    <div className="flex flex-col">
+                        <div className="flex flex-row gap-2 justify-center font-extrabold">
+                            <img src={selectedWallet.info.icon} alt={selectedWallet.info.name} />
+                            <div className="flex items-center ">{selectedWallet.info.name}</div>
+                        </div>
+                        <div><span className="font-bold mr-2">Address:</span>({formatAddress(userAccount)})</div>
+                        <div><span className="font-bold mr-2">Chain ID:</span>{selectedWallet.provider.chainId}</div>
                     </div>
-                    <hr />
-                    <h2>{userAccount ? "" : "No "}Wallet Selected</h2>
                 </div>
             }
         </>
