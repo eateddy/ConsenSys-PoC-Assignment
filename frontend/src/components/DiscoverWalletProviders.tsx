@@ -1,8 +1,11 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { useSyncProviders } from "../hooks/useSyncProviders"
 import { formatAddress } from "../utils"
+import { useSnapshot } from 'valtio';
+import state from '../store';
 
 export const DiscoverWalletProviders = () => {
+    const snap = useSnapshot(state)
     const [selectedWallet, setSelectedWallet] = useState<EIP6963ProviderDetail>()
     const [userAccount, setUserAccount] = useState<string>("")
     const providers = useSyncProviders()
@@ -16,6 +19,11 @@ export const DiscoverWalletProviders = () => {
 
             setSelectedWallet(providerWithInfo)
             setUserAccount(accounts?.[0])
+
+            const chainId = selectedWallet.provider.chainId
+            state.chainId = chainId
+            state.userAccount = userAccount
+            console.log("chainId:", snap.chainId, "userAccount:", snap.userAccount)
         } catch (error) {
             console.error(error)
         }
