@@ -3,7 +3,9 @@ import { DiscoverWalletProviders } from "./components/DiscoverWalletProviders"
 
 function App() {
     return (
-        <DiscoverWalletProviders/>
+        <div className="bg-pink-500 rounded-md p-2">
+            <DiscoverWalletProviders/>
+        </div>
     )
 }
 
