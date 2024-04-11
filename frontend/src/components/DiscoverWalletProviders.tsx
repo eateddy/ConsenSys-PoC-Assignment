@@ -34,7 +34,11 @@ export const DiscoverWalletProviders = () => {
                         </button>
                     )) :
                         <div>
-                            No Announced Wallet Providers
+                            No Wallet Detected. Please download MetaMask at:
+                            <br/>
+                            <a href="https://www.metamask.io" target="_blank" rel="noopener noreferrer">
+                                www.metamask.io
+                            </a>
                         </div>
                 }
             </div>
