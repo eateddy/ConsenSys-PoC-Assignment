@@ -20,14 +20,22 @@ export const DiscoverWalletProviders = () => {
             setSelectedWallet(providerWithInfo)
             setUserAccount(accounts?.[0])
 
-            const chainId = selectedWallet.provider.chainId
-            state.chainId = chainId
-            state.userAccount = userAccount
-            console.log("chainId:", snap.chainId, "userAccount:", snap.userAccount)
         } catch (error) {
             console.error(error)
         }
     }
+
+    useEffect(() => {
+        const updateGlobalState = async () => {
+            if (selectedWallet) {
+                const chainId = selectedWallet.provider.chainId
+                state.chainId = chainId
+                state.userAccount = userAccount
+                state.isConnected = true
+            }
+        }
+        updateGlobalState()
+    }, [selectedWallet])
 
     // Display detected providers as connect buttons.
     return (
