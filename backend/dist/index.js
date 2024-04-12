@@ -7,7 +7,7 @@ const port = 5001;
 const app = express();
 app.use(cors());
 app.use(express.json());
-const APIKEY = process.env.API_KEY;
+const INFURA_API_KEY = process.env.INFURA_API_KEY;
 // Infura NFT API is no longer supported - make assumption this is the Infura NFT API and code will reflect that when the new NFT API is released
 app.get('/getwalletnfts', async (req, res) => {
     // Getting the address and chain from the query parameters
@@ -30,7 +30,7 @@ app.get('/getwalletnfts', async (req, res) => {
     }
 });
 Moralis.start({
-    apiKey: APIKEY,
+    apiKey: INFURA_API_KEY,
 }).then(() => {
     app.listen(port, () => {
         console.log(`Listening for API Calls on port ${port}`);
