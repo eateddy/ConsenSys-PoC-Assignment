@@ -17,10 +17,7 @@ function App() {
                 {snap.isConnected && <GetWalletNfts/>}
             </div>
             <div className="flex flex-row flex-wrap justify-center items-center">
-                {snap.isNftData
-                && 
-                    <DisplayNftData/>
-                }
+                {snap.isNftData && <DisplayNftData/>}
             </div>
         </div>
     )
