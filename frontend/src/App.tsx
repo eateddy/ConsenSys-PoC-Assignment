@@ -1,6 +1,7 @@
 import "./App.css"
 import { DiscoverWalletProviders } from "./components/DiscoverWalletProviders";
 import { GetWalletNfts } from "./components/GetWalletNfts";
+import { DisplayNftData } from "./components/DisplayNftData";
 import { useSnapshot } from "valtio";
 import state from "./store"
 
@@ -15,7 +16,13 @@ function App() {
             {snap.isConnected 
             && 
             <div>
-                {<GetWalletNfts/>}
+                <GetWalletNfts/>
+            </div>
+            }
+            {snap.isNftData
+            && 
+            <div>
+                <DisplayNftData/>
             </div>
             }
         </>

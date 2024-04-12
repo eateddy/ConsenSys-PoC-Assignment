@@ -26,12 +26,14 @@ export const DiscoverWalletProviders = () => {
     }
 
     useEffect(() => {
+        // Update global states so all references correct to the wallet referenced.
         const updateGlobalState = async () => {
             if (selectedWallet) {
                 const chainId = selectedWallet.provider.chainId
                 state.chainId = chainId
                 state.userAccount = userAccount
                 state.isConnected = true
+                state.isNftData = false
             }
         }
         updateGlobalState()

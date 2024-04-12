@@ -13,8 +13,14 @@ export const GetWalletNfts = () => {
       const response = await axios.get("http://localhost:5001/getwalletnfts", { params });
       
       console.log("params:", params )
-
-      console.log(response)
+      
+      const data = response.data;
+      if (data != 0) {
+        state.isNftData = true
+      }
+      
+      console.log("data.result check:", data.result)
+      state.nftData = data.result;
     } catch (error) {
       console.error('Error:', error);
     }
