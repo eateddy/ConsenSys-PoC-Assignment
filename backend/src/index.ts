@@ -11,9 +11,10 @@ app.use(express.json());
 
 const INFURA_API_KEY: string = process.env.INFURA_API_KEY;
 
-// Infura NFT API is no longer supported - make assumption this is the Infura NFT API and code will reflect that when the new NFT API is released
+{/* Infura NFT API is no longer supported (Nov 2023) 
+- make assumption this is the Infura NFT API because the 
+new NFT API has not been released yet*/}
 app.get('/getwalletnfts', async (req: Request, res: Response) => {
-  // Getting the address and chain from the query parameters
   const { address, chainId } = req.query; 
   console.log("check", req.query)
   
