@@ -15,10 +15,12 @@ export const GetWalletNfts = () => {
       console.log("params:", params )
       
       const data = response.data;
-      if (data != 0) {
+      if (data.result.length === 0) {
+        return
+      } else {
         state.isNftData = true
       }
-      
+
       console.log("data.result check:", data.result)
       state.nftData = data.result;
     } catch (error) {

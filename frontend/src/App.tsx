@@ -9,23 +9,20 @@ function App() {
     const snap = useSnapshot(state)
     
     return (
-        <>
-            <div className="border border-gray-500 rounded-md p-2">
-                <DiscoverWalletProviders/>
+        <div className="flex flex-col justify-center items-center gap-2">
+            <div className="flex flex-col w-fit">
+                <div className="border border-gray-500 rounded-md p-2">
+                    <DiscoverWalletProviders/>
+                </div>
+                {snap.isConnected && <GetWalletNfts/>}
             </div>
-            {snap.isConnected 
-            && 
-            <div>
-                <GetWalletNfts/>
+            <div className="flex flex-row flex-wrap justify-center items-center">
+                {snap.isNftData
+                && 
+                    <DisplayNftData/>
+                }
             </div>
-            }
-            {snap.isNftData
-            && 
-            <div>
-                <DisplayNftData/>
-            </div>
-            }
-        </>
+        </div>
     )
 }
 
