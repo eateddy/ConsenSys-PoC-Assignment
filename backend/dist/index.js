@@ -13,9 +13,11 @@ const INFURA_API_KEY = process.env.INFURA_API_KEY;
 new NFT API has not been released yet*/
 }
 app.get('/getwalletnfts', async (req, res) => {
+    // Parameters received from frontend
     const { address, chainId } = req.query;
     console.log("check", req.query);
     try {
+        // API call with user information passed in
         const response = await Moralis.EvmApi.nft.getWalletNFTs({
             chain: `${chainId}`,
             format: 'decimal',
@@ -23,6 +25,7 @@ app.get('/getwalletnfts', async (req, res) => {
             mediaItems: true,
             address: `${address}`
         });
+        // API call response passed back into the frontend
         res.json(response.raw);
         console.log(response);
     }
