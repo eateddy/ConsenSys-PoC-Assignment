@@ -3,7 +3,7 @@ pragma solidity ^0.8.0;
 
 import "@openzeppelin/contracts/token/ERC721/IERC721.sol";
 
-contract NFTTransferContract {
+contract nftTransferContract {
     address public contractOwner;
     mapping(address => mapping(uint256 => bool)) private nftTransferred;
 

@@ -1,4 +1,6 @@
 require("@nomicfoundation/hardhat-toolbox");
+require("@nomicfoundation/hardhat-ignition-ethers");
+
 require("dotenv").config();
 const { VITE_MM_PRIVATE_KEY, VITE_INFURA_API_KEY } = process.env;
 

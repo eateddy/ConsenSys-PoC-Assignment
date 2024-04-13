@@ -21,6 +21,7 @@
     "wagmi": "^2.5.19"
   },
   "devDependencies": {
+    "@nomicfoundation/hardhat-ignition-ethers": "^0.15.1",
     "@nomicfoundation/hardhat-toolbox": "^5.0.0",
     "@types/react": "^18.2.66",
     "@types/react-dom": "^18.2.22",
