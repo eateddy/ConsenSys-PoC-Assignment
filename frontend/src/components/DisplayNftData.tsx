@@ -2,6 +2,7 @@ import { useSnapshot } from "valtio";
 import state from "../store";
 import { Card } from "@web3uikit/core"
 import { useEffect } from "react";
+import { Collateralise } from "./Collateralise";
 
 export const DisplayNftData = () => {
 
@@ -33,6 +34,12 @@ export const DisplayNftData = () => {
           >
             {nft.normalized_metadata.name}
           </span>
+          <button
+            className="flex justify-center font-bold text-white bg-gray-500"
+            onClick={() => Collateralise(nft.token_address, nft.token_id)}
+          >
+              Collaterialise NFT?
+          </button>
         </Card>
       </div>
     ))

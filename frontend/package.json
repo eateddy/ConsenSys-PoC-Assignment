@@ -2,7 +2,7 @@
   "name": "frontend",
   "private": true,
   "version": "0.0.0",
-  "type": "ES2020",
+  "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
