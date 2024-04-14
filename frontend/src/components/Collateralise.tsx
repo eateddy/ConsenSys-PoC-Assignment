@@ -12,6 +12,7 @@ export const Collateralise = async (nftAddress: string, nftId: string) => {
   const nftContract = new ethers.Contract(lineaSepoliaContractAddress, abi, testSigner)
   
   try {
+    // on clicking the button contract function is called to collateralise NFT
     const tx = await nftContract.transferNFT(nftAddress, nftId)
     const receipt = await tx.wait(1);
 

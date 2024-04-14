@@ -13,7 +13,7 @@ export const DisplayNftData = () => {
   })
 
   return (
-    // Map across array of objects containing NFT metadata
+    // Map across array of objects to display specific NFT information
     snap.nftData.map((nft: object, i: number) => (
       <div className="h-fit w-52 rounded-lg" key={i}>
         <Card>
@@ -36,6 +36,7 @@ export const DisplayNftData = () => {
           </span>
           <button
             className="flex justify-center font-bold text-white bg-gray-500"
+            // Apply collateralise NFT function to button
             onClick={() => Collateralise(nft.token_address, nft.token_id)}
           >
               Collaterialise NFT?
