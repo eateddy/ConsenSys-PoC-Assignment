@@ -1,10 +1,11 @@
-require("@nomicfoundation/hardhat-toolbox");
-require("@nomicfoundation/hardhat-ignition-ethers");
+import { HardhatUserConfig } from "hardhat/config";
+import "@nomicfoundation/hardhat-toolbox";
+import dotenv from "dotenv";
+dotenv.config();
 
-require("dotenv").config();
 const { VITE_MM_PRIVATE_KEY, VITE_INFURA_API_KEY } = process.env;
 
-module.exports = {
+const config: HardhatUserConfig = {
   solidity: "0.8.24",
   networks: {
     linea_sepolia: {
@@ -13,3 +14,5 @@ module.exports = {
     }
   },
 };
+
+export default config;
